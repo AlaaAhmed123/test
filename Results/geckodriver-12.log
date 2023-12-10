@@ -1,0 +1,71 @@
+1698764948808	geckodriver	INFO	Listening on 127.0.0.1:52546
+1698764951837	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52547" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ALAAAH~1\\AppData\\Local\\Temp\\rust_mozprofileLvip0n"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1698764952409	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1698764952546	Marionette	INFO	Listening on port 52557
+WebDriver BiDi listening on ws://127.0.0.1:52547
+Read port: 52557
+1698764952955	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52547/devtools/browser/57336c07-df0c-45b7-a472-a7bcb982f2c7
+console.error: ({})
+console.error: ({})
+1698764983441	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.error: services.settings: 
+  Message: NetworkError: Network error: TypeError: NetworkError: Network request failed
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkError@resource://services-settings/RemoteSettingsClient.sys.mjs:111:5
+_adjustedError@resource://services-settings/RemoteSettingsClient.sys.mjs:907:14
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:812:38
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkOfflineError@resource://services-settings/RemoteSettingsClient.sys.mjs:118:5
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:663:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.sys.mjs:380:22
+
+console.error: (new NetworkError("Network error: TypeError: NetworkError: Network request failed", "resource://services-settings/RemoteSettingsClient.sys.mjs", 107))

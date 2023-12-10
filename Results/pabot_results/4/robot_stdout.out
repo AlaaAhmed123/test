@@ -1,0 +1,16 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.Static                                                                 
+==============================================================================
+GETProfile                                                            ['eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNjk5MzA3NDQ4fQ.8VBGbDb5IPtzTQQF7U6Iw1KgJC84oA3WWIUfUG3TCyQ']
+{'id': 1, 'email': 'john@mail.com', 'password': 'changeme', 'name': 'Jhon', 'role': 'customer', 'avatar': 'https://i.imgur.com/M3QKiC5.jpeg', 'creationAt': '2023-11-06T10:57:31.000Z', 'updatedAt': '2023-11-06T10:57:31.000Z'}
+| PASS |
+------------------------------------------------------------------------------
+Suites.Static                                                         | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Suites                                                                | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Output:  C:\Users\Alaa Ahmed\PycharmProjects\test\Results\pabot_results\4\output.xml

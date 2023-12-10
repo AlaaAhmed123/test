@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20231205 18:29:17.868" rpa="false" schemaversion="3">
+<suite id="s1" name="Employee" source="C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\employee.robot">
+<test id="s1-t1" name="Employee" line="13">
+<kw name="LoginEmployee" library="common">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>LoginEmployee</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231205 18:29:18.781" level="INFO">Creating Session using : alias=LoginEmployee, url=https://web.v-dream.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:18.781"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>DeviceId=RTXD-539573</arg>
+<arg>Password=Alaa#1122</arg>
+<arg>UserName=dm22</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:18.781" level="INFO">${body} = {'DeviceId': 'RTXD-539573', 'Password': 'Alaa#1122', 'UserName': 'dm22'}</msg>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:18.781"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:18.781" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:18.781"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>LoginEmployee</arg>
+<arg>${emp}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231205 18:29:18.781" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">POST Request : url=https://web.v-dream.net/api/EmployeeQR/Login 
+ path_url=/api/EmployeeQR/Login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '72'} 
+ body={"DeviceId": "RTXD-539573", "Password": "Alaa#1122", "UserName": "dm22"} 
+ </msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">POST Response : url=https://web.v-dream.net/api/EmployeeQR/Login 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Dec 2023 16:29:22 GMT'} 
+ body={"message":"Succeffully Logged in - تم الدخول بنجاح","messageEn":null,"messageAr":null,"statusCode":200,"data":{"brnEmpId":10415,"empId":425,"templateId":0,"nameAr":"مدير مباشر22","nameEn":"Direct manager22","companyId":196,"mobileNumber":"+9665969482020","companyNameAr":"اختبار 21_11","companyNameEn":"Test 21_11","branchNameEn":"First branch","branchNameAr":"فرع الاول","companyLogo":"https://web.v-dream.net/Uploads/CompanysLogos/ueqjpqnp1kp.png","token":"Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=","deviceDefaultLanguage":null,"brnEmpServices":[],"isSubmitAll":true,"deviceFields":[{"id":208,"deviceId":490,"fieldNameAr":"رقم الهاتف","fieldNameEn":"phone number","placeholderNameAr":"ادخل رقم الهاتف","placeholderNameEn":"Enter a phone number","inputTypeId":2,"isRequired":false},{"id":226,"deviceId":490,"fieldNameAr":"الايميل","fieldNameEn":"Email","placeholderNameAr":"أدخل الايميل","placeholderNameEn":"Enter your email","inputTypeId":1,"isRequired":false}],"deviceImages":[{"displayScreenId":3,"displayScreenName":"Services","imageLocationId":1,"imageLocationName":"Side Bar","imagePath":"https://web.v-dream.net/Uploads/DeviceImages/raw2wvcth4p.png","imageWidth":567,"imageHeight":674}],"complaintsButtonAppears":true,"showBranchPhoneNumber":false,"showBranchName":true,"hideLanguageScreen":false,"refreshToken":"vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g=","showQuestionProgressBar":true,"complaintSort":{"id":1,"nameAr":"شكوى","nameEn":"Complaint"},"haveEmpEvaluation":true,"haveCollageEvaluation":true,"haveManagerEvalaution":true,"showCompanyName":true},"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:23.465"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231205 18:29:23.465" endtime="20231205 18:29:23.465"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20231205 18:29:23.465" endtime="20231205 18:29:23.465"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231205 18:29:23.465" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">To JSON using : content={"message":"Succeffully Logged in - تم الدخول بنجاح","messageEn":null,"messageAr":null,"statusCode":200,"data":{"brnEmpId":10415,"empId":425,"templateId":0,"nameAr":"مدير مباشر22","nameEn":"Direct manager22","companyId":196,"mobileNumber":"+9665969482020","companyNameAr":"اختبار 21_11","companyNameEn":"Test 21_11","branchNameEn":"First branch","branchNameAr":"فرع الاول","companyLogo":"https://web.v-dream.net/Uploads/CompanysLogos/ueqjpqnp1kp.png","token":"Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=","deviceDefaultLanguage":null,"brnEmpServices":[],"isSubmitAll":true,"deviceFields":[{"id":208,"deviceId":490,"fieldNameAr":"رقم الهاتف","fieldNameEn":"phone number","placeholderNameAr":"ادخل رقم الهاتف","placeholderNameEn":"Enter a phone number","inputTypeId":2,"isRequired":false},{"id":226,"deviceId":490,"fieldNameAr":"الايميل","fieldNameEn":"Email","placeholderNameAr":"أدخل الايميل","placeholderNameEn":"Enter your email","inputTypeId":1,"isRequired":false}],"deviceImages":[{"displayScreenId":3,"displayScreenName":"Services","imageLocationId":1,"imageLocationName":"Side Bar","imagePath":"https://web.v-dream.net/Uploads/DeviceImages/raw2wvcth4p.png","imageWidth":567,"imageHeight":674}],"complaintsButtonAppears":true,"showBranchPhoneNumber":false,"showBranchName":true,"hideLanguageScreen":false,"refreshToken":"vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g=","showQuestionProgressBar":true,"complaintSort":{"id":1,"nameAr":"شكوى","nameEn":"Complaint"},"haveEmpEvaluation":true,"haveCollageEvaluation":true,"haveManagerEvalaution":true,"showCompanyName":true},"isSuccess":true,"isData":null} </msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231205 18:29:23.465" level="INFO">${body} = {'message': 'Succeffully Logged in - تم الدخول بنجاح', 'messageEn': None, 'messageAr': None, 'statusCode': 200, 'data': {'brnEmpId': 10415, 'empId': 425, 'templateId': 0, 'nameAr': 'مدير مباشر22', 'na...</msg>
+<status status="PASS" starttime="20231205 18:29:23.465" endtime="20231205 18:29:23.465"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${data}</arg>
+<arg>${body}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.465" level="INFO">${data} = {'message': 'Succeffully Logged in - تم الدخول بنجاح', 'messageEn': None, 'messageAr': None, 'statusCode': 200, 'data': {'brnEmpId': 10415, 'empId': 425, 'templateId': 0, 'nameAr': 'مدير مباشر22', 'na...</msg>
+<status status="PASS" starttime="20231205 18:29:23.465" endtime="20231205 18:29:23.465"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${BrnEmpId}</var>
+<arg>${body}</arg>
+<arg>$..data.brnEmpId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:23.564" level="INFO">${BrnEmpId} = [10415]</msg>
+<status status="PASS" starttime="20231205 18:29:23.465" endtime="20231205 18:29:23.564"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${brnEmpId}</arg>
+<arg>${BrnEmpId}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.564" level="INFO">${brnEmpId} = 10415</msg>
+<status status="PASS" starttime="20231205 18:29:23.564" endtime="20231205 18:29:23.564"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${emp_ID}</var>
+<arg>${body}</arg>
+<arg>$..data.empId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:23.586" level="INFO">${emp_ID} = [425]</msg>
+<status status="PASS" starttime="20231205 18:29:23.564" endtime="20231205 18:29:23.586"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${empId}</arg>
+<arg>${emp_ID}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.595" level="INFO">${empId} = [425]</msg>
+<status status="PASS" starttime="20231205 18:29:23.586" endtime="20231205 18:29:23.595"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${companyID}</var>
+<arg>${body}</arg>
+<arg>$..data.companyId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:23.647" level="INFO">${companyID} = [196]</msg>
+<status status="PASS" starttime="20231205 18:29:23.595" endtime="20231205 18:29:23.647"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${companyId}</arg>
+<arg>${companyID}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.647" level="INFO">${companyId} = 196</msg>
+<status status="PASS" starttime="20231205 18:29:23.647" endtime="20231205 18:29:23.647"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${token_data}</var>
+<arg>${data}</arg>
+<arg>$..data.token</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:23.697" level="INFO">${token_data} = ['Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=']</msg>
+<status status="PASS" starttime="20231205 18:29:23.647" endtime="20231205 18:29:23.697"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${token}</arg>
+<arg>${token_data}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.697" level="INFO">${token} = Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=</msg>
+<status status="PASS" starttime="20231205 18:29:23.697" endtime="20231205 18:29:23.697"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${refresh_Token}</var>
+<arg>${data}</arg>
+<arg>$..data.refreshToken</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:23.756" level="INFO">${refresh_Token} = ['vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g=']</msg>
+<status status="PASS" starttime="20231205 18:29:23.697" endtime="20231205 18:29:23.756"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${refreshToken}</arg>
+<arg>${refresh_Token}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:23.756" level="INFO">${refreshToken} = vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g=</msg>
+<status status="PASS" starttime="20231205 18:29:23.756" endtime="20231205 18:29:23.756"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:23.758"/>
+</kw>
+<kw name="GetGroupItemsEmployee" library="common">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetGroupItemsEmployee</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231205 18:29:23.758" level="INFO">Creating Session using : alias=GetGroupItemsEmployee, url=https://web.v-dream.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:29:23.758" endtime="20231205 18:29:23.758"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>EvaluatorEnumId=4</arg>
+<arg>Language=5</arg>
+<arg>RefreshToken=${refreshToken}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:23.758" level="INFO">${body} = {'EvaluatorEnumId': '4', 'Language': '5', 'RefreshToken': 'vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g='}</msg>
+<status status="PASS" starttime="20231205 18:29:23.758" endtime="20231205 18:29:23.758"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:23.758" level="INFO">${header} = {'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231205 18:29:23.758" endtime="20231205 18:29:23.758"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetGroupItemsEmployee</arg>
+<arg>${getgroupitems}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231205 18:29:23.758" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:25.980" level="INFO">POST Request : url=https://web.v-dream.net/api/EmployeeQR/GetGroupItems 
+ path_url=/api/EmployeeQR/GetGroupItems 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json', 'Content-Length': '105'} 
+ body={"EvaluatorEnumId": "4", "Language": "5", "RefreshToken": "vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g="} 
+ </msg>
+<msg timestamp="20231205 18:29:25.980" level="INFO">POST Response : url=https://web.v-dream.net/api/EmployeeQR/GetGroupItems 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Dec 2023 16:29:25 GMT'} 
+ body={"message":null,"messageEn":null,"messageAr":null,"statusCode":0,"data":{"type":"employee","objectList":[{"id":17407,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728},{"id":17411,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728},{"id":17415,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728}],"objectQA":null,"resultMessage":null,"isSuccess":false,"isData":true},"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231205 18:29:25.980" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231205 18:29:25.980" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231205 18:29:23.758" endtime="20231205 18:29:25.980"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231205 18:29:25.980" endtime="20231205 18:29:25.980"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231205 18:29:25.996" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:25.996" level="INFO">To JSON using : content={"message":null,"messageEn":null,"messageAr":null,"statusCode":0,"data":{"type":"employee","objectList":[{"id":17407,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728},{"id":17411,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728},{"id":17415,"itemId":0,"name":"مدير مباشر22","image":"","templateId":728}],"objectQA":null,"resultMessage":null,"isSuccess":false,"isData":true},"isSuccess":true,"isData":null} </msg>
+<msg timestamp="20231205 18:29:25.996" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231205 18:29:25.996" level="INFO">${body} = {'message': None, 'messageEn': None, 'messageAr': None, 'statusCode': 0, 'data': {'type': 'employee', 'objectList': [{'id': 17407, 'itemId': 0, 'name': 'مدير مباشر22', 'image': '', 'templateId': 728},...</msg>
+<status status="PASS" starttime="20231205 18:29:25.996" endtime="20231205 18:29:25.996"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${ItemId}</var>
+<arg>${body}</arg>
+<arg>$..data.objectList[0].id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:26.081" level="INFO">${ItemId} = [17407]</msg>
+<status status="PASS" starttime="20231205 18:29:25.996" endtime="20231205 18:29:26.081"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${id}</arg>
+<arg>${ItemId}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:26.081" level="INFO">${id} = 17407</msg>
+<status status="PASS" starttime="20231205 18:29:26.081" endtime="20231205 18:29:26.081"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${templateID}</var>
+<arg>${body}</arg>
+<arg>$..data.objectList[0].templateId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:26.127" level="INFO">${templateID} = [728]</msg>
+<status status="PASS" starttime="20231205 18:29:26.081" endtime="20231205 18:29:26.127"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${templateId}</arg>
+<arg>${templateID}[0]</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:26.127" level="INFO">${templateId} = 728</msg>
+<status status="PASS" starttime="20231205 18:29:26.127" endtime="20231205 18:29:26.127"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:23.758" endtime="20231205 18:29:26.127"/>
+</kw>
+<kw name="GetItemQuestionsEmployee" library="common">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetItemQuestionsEmployee</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231205 18:29:26.127" level="INFO">Creating Session using : alias=GetItemQuestionsEmployee, url=https://web.v-dream.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:29:26.127" endtime="20231205 18:29:26.127"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>CompanyId=${companyId}</arg>
+<arg>EmployeeId=${empId}[0]</arg>
+<arg>ItemId=${id}</arg>
+<arg>TemplateId=${templateId}</arg>
+<arg>LanguageId=5</arg>
+<arg>RefreshToken=${refreshToken}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:26.143" level="INFO">${body} = {'CompanyId': 196, 'EmployeeId': 425, 'ItemId': 17407, 'TemplateId': 728, 'LanguageId': '5', 'RefreshToken': 'vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g='}</msg>
+<status status="PASS" starttime="20231205 18:29:26.127" endtime="20231205 18:29:26.143"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:26.143" level="INFO">${header} = {'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231205 18:29:26.143" endtime="20231205 18:29:26.143"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>GetItemQuestionsEmployee</arg>
+<arg>${GetItemQuestions}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231205 18:29:26.143" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:28.966" level="INFO">POST Request : url=https://web.v-dream.net/api/EmployeeQR/GetItemQuestions 
+ path_url=/api/EmployeeQR/GetItemQuestions 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json', 'Content-Length': '156'} 
+ body={"CompanyId": 196, "EmployeeId": 425, "ItemId": 17407, "TemplateId": 728, "LanguageId": "5", "RefreshToken": "vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g="} 
+ </msg>
+<msg timestamp="20231205 18:29:28.966" level="INFO">POST Response : url=https://web.v-dream.net/api/EmployeeQR/GetItemQuestions 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Dec 2023 16:29:28 GMT'} 
+ body={"message":null,"messageEn":"Successfully done","messageAr":"تمت العملية بنجاح","statusCode":200,"data":{"itemId":0,"itemTemplateId":728,"answerTypeId":0,"itemQuestions":[{"evaluationQuestionId":1117,"question":"تقييم الاداء","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2244,"answer":"ممتاز","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tmxv4mdbdtw.png","rank":0,"optionDegree":5,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]},{"answerId":2245,"answer":"ضعيف جدا","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]},{"evaluationQuestionId":1118,"question":"تقييم المهاره","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2306,"answer":"1","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]},{"answerId":2307,"answer":"5","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tmxv4mdbdtw.png","rank":0,"optionDegree":5,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]},{"evaluationQuestionId":1119,"question":"س2","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2308,"answer":"11","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]}]},"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231205 18:29:28.966" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231205 18:29:28.973" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231205 18:29:26.143" endtime="20231205 18:29:28.973"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231205 18:29:28.973" endtime="20231205 18:29:28.973"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231205 18:29:28.973" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:28.973" level="INFO">To JSON using : content={"message":null,"messageEn":"Successfully done","messageAr":"تمت العملية بنجاح","statusCode":200,"data":{"itemId":0,"itemTemplateId":728,"answerTypeId":0,"itemQuestions":[{"evaluationQuestionId":1117,"question":"تقييم الاداء","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2244,"answer":"ممتاز","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tmxv4mdbdtw.png","rank":0,"optionDegree":5,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]},{"answerId":2245,"answer":"ضعيف جدا","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]},{"evaluationQuestionId":1118,"question":"تقييم المهاره","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2306,"answer":"1","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]},{"answerId":2307,"answer":"5","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tmxv4mdbdtw.png","rank":0,"optionDegree":5,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]},{"evaluationQuestionId":1119,"question":"س2","answerTypeId":4,"rank":0,"evaluationAnswers":[{"answerId":2308,"answer":"11","emoji":"https://web.v-dream.net/Uploads/EmojiImages/tujjhvb1tr0.png","rank":0,"optionDegree":1,"createdDate":"0001-01-01T00:00:00","evaluationAnswersReasons":[]}]}]},"isSuccess":true,"isData":null} </msg>
+<msg timestamp="20231205 18:29:28.973" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231205 18:29:28.973" level="INFO">${body} = {'message': None, 'messageEn': 'Successfully done', 'messageAr': 'تمت العملية بنجاح', 'statusCode': 200, 'data': {'itemId': 0, 'itemTemplateId': 728, 'answerTypeId': 0, 'itemQuestions': [{'evaluationQ...</msg>
+<status status="PASS" starttime="20231205 18:29:28.973" endtime="20231205 18:29:28.973"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>@{itemQuestions}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.073" level="INFO">@{itemQuestions} = [ [{'evaluationQuestionId': 1117, 'question': 'تقييم الاداء', 'answerTypeId': 4, 'rank': 0, 'evaluationAnswers': [{'answerId': 2244, 'answer': 'ممتاز', 'emoji': 'https://web.v-dream.net/Uploads/EmojiI...</msg>
+<status status="PASS" starttime="20231205 18:29:28.973" endtime="20231205 18:29:29.073"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${count}</var>
+<arg>@{itemQuestions}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20231205 18:29:29.073" level="INFO">Length is 3</msg>
+<msg timestamp="20231205 18:29:29.073" level="INFO">${count} = 3</msg>
+<status status="PASS" starttime="20231205 18:29:29.073" endtime="20231205 18:29:29.073"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{Question_Answer}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231205 18:29:29.073" level="INFO">@{Question_Answer} = [ ]</msg>
+<status status="PASS" starttime="20231205 18:29:29.073" endtime="20231205 18:29:29.073"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${count}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${evaluationQuestionId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationQuestionId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.120" level="INFO">${evaluationQuestionId} = [1117]</msg>
+<status status="PASS" starttime="20231205 18:29:29.073" endtime="20231205 18:29:29.120"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${answerId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationAnswers[0].answerId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.189" level="INFO">${answerId} = [2244]</msg>
+<status status="PASS" starttime="20231205 18:29:29.120" endtime="20231205 18:29:29.189"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${x}</var>
+<arg>QuestionId=${evaluationQuestionId}[0]</arg>
+<arg>AnswerId=${answerId}[0]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:29.189" level="INFO">${x} = {'QuestionId': 1117, 'AnswerId': 2244}</msg>
+<status status="PASS" starttime="20231205 18:29:29.189" endtime="20231205 18:29:29.189"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Question_Answer}</arg>
+<arg>${x}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 18:29:29.189" endtime="20231205 18:29:29.189"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:29.073" endtime="20231205 18:29:29.189"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${evaluationQuestionId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationQuestionId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.236" level="INFO">${evaluationQuestionId} = [1118]</msg>
+<status status="PASS" starttime="20231205 18:29:29.189" endtime="20231205 18:29:29.236"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${answerId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationAnswers[0].answerId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.417" level="INFO">${answerId} = [2306]</msg>
+<status status="PASS" starttime="20231205 18:29:29.236" endtime="20231205 18:29:29.417"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${x}</var>
+<arg>QuestionId=${evaluationQuestionId}[0]</arg>
+<arg>AnswerId=${answerId}[0]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:29.427" level="INFO">${x} = {'QuestionId': 1118, 'AnswerId': 2306}</msg>
+<status status="PASS" starttime="20231205 18:29:29.425" endtime="20231205 18:29:29.427"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Question_Answer}</arg>
+<arg>${x}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 18:29:29.427" endtime="20231205 18:29:29.427"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:29.189" endtime="20231205 18:29:29.427"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${evaluationQuestionId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationQuestionId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.528" level="INFO">${evaluationQuestionId} = [1119]</msg>
+<status status="PASS" starttime="20231205 18:29:29.427" endtime="20231205 18:29:29.528"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${answerId}</var>
+<arg>${body}</arg>
+<arg>$..data.itemQuestions[${i}].evaluationAnswers[0].answerId</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231205 18:29:29.629" level="INFO">${answerId} = [2308]</msg>
+<status status="PASS" starttime="20231205 18:29:29.528" endtime="20231205 18:29:29.629"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${x}</var>
+<arg>QuestionId=${evaluationQuestionId}[0]</arg>
+<arg>AnswerId=${answerId}[0]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:29.647" level="INFO">${x} = {'QuestionId': 1119, 'AnswerId': 2308}</msg>
+<status status="PASS" starttime="20231205 18:29:29.629" endtime="20231205 18:29:29.647"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Question_Answer}</arg>
+<arg>${x}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231205 18:29:29.647" endtime="20231205 18:29:29.647"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:29.427" endtime="20231205 18:29:29.647"/>
+</iter>
+<status status="PASS" starttime="20231205 18:29:29.073" endtime="20231205 18:29:29.649"/>
+</for>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>@{QuestionAnswer}</arg>
+<arg>@{Question_Answer}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20231205 18:29:29.649" level="INFO">@{QuestionAnswer} = [ {'QuestionId': 1117, 'AnswerId': 2244} | {'QuestionId': 1118, 'AnswerId': 2306} | {'QuestionId': 1119, 'AnswerId': 2308} ]</msg>
+<status status="PASS" starttime="20231205 18:29:29.649" endtime="20231205 18:29:29.649"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${QuestionAnswer}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:29.649" endtime="20231205 18:29:29.760"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:26.127" endtime="20231205 18:29:29.760"/>
+</kw>
+<kw name="SaveEvaluationEmployee" library="common">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${brnEmpId}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:29.798" endtime="20231205 18:29:29.859"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:29.861" endtime="20231205 18:29:29.930"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${empId}[0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:29.930" endtime="20231205 18:29:30.011"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${QuestionAnswer}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:30.011" endtime="20231205 18:29:30.116"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${refreshToken}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:30.116" endtime="20231205 18:29:30.189"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>SaveEvaluationEmployee</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231205 18:29:30.193" level="INFO">Creating Session using : alias=SaveEvaluationEmployee, url=https://web.v-dream.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:29:30.189" endtime="20231205 18:29:30.193"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>EvaluatorId=${brnEmpId}</arg>
+<arg>EvaluatedId=${id}</arg>
+<arg>EmployeeId=${empId}[0]</arg>
+<arg>QuestionAnswer=@{QuestionAnswer}</arg>
+<arg>LanguageId=5</arg>
+<arg>RefreshToken=${refreshToken}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:30.193" level="INFO">${body} = {'EvaluatorId': 10415, 'EvaluatedId': 17407, 'EmployeeId': 425, 'QuestionAnswer': [{'QuestionId': 1117, 'AnswerId': 2244}, {'QuestionId': 1118, 'AnswerId': 2306}, {'QuestionId': 1119, 'AnswerId': 2308...</msg>
+<status status="PASS" starttime="20231205 18:29:30.193" endtime="20231205 18:29:30.193"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:30.193" level="INFO">${header} = {'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231205 18:29:30.193" endtime="20231205 18:29:30.193"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>SaveEvaluationEmployee</arg>
+<arg>${SaveEvaluation}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231205 18:29:30.197" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:33.585" level="INFO">POST Request : url=https://web.v-dream.net/api/EmployeeQR/SaveEvaluation 
+ path_url=/api/EmployeeQR/SaveEvaluation 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json', 'Content-Length': '286'} 
+ body={"EvaluatorId": 10415, "EvaluatedId": 17407, "EmployeeId": 425, "QuestionAnswer": [{"QuestionId": 1117, "AnswerId": 2244}, {"QuestionId": 1118, "AnswerId": 2306}, {"QuestionId": 1119, "AnswerId": 2308}], "LanguageId": "5", "RefreshToken": "vbili3sYvoHLkRSl6nDvvVEINPvSIciHATJdd2EVh5g="} 
+ </msg>
+<msg timestamp="20231205 18:29:33.587" level="INFO">POST Response : url=https://web.v-dream.net/api/EmployeeQR/SaveEvaluation 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Dec 2023 16:29:34 GMT'} 
+ body={"message":"تم تسجيل تقييمك بنجاح، شكراً لإبداء رأيك","messageEn":null,"messageAr":null,"statusCode":200,"data":null,"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231205 18:29:33.587" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231205 18:29:33.587" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231205 18:29:30.197" endtime="20231205 18:29:33.587"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231205 18:29:33.587" endtime="20231205 18:29:33.587"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231205 18:29:33.587" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:33.597" level="INFO">To JSON using : content={"message":"تم تسجيل تقييمك بنجاح، شكراً لإبداء رأيك","messageEn":null,"messageAr":null,"statusCode":200,"data":null,"isSuccess":true,"isData":null} </msg>
+<msg timestamp="20231205 18:29:33.597" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231205 18:29:33.597" level="INFO">${body} = {'message': 'تم تسجيل تقييمك بنجاح، شكراً لإبداء رأيك', 'messageEn': None, 'messageAr': None, 'statusCode': 200, 'data': None, 'isSuccess': True, 'isData': None}</msg>
+<status status="PASS" starttime="20231205 18:29:33.587" endtime="20231205 18:29:33.597"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231205 18:29:33.597" endtime="20231205 18:29:33.618"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:29.798" endtime="20231205 18:29:33.618"/>
+</kw>
+<kw name="LogoutEmployee" library="common">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>LogoutEmployee</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231205 18:29:33.626" level="INFO">Creating Session using : alias=LogoutEmployee, url=https://web.v-dream.net/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231205 18:29:33.626" endtime="20231205 18:29:33.628"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>LangId=5</arg>
+<arg>Password=Alaa#1122</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:33.628" level="INFO">${body} = {'LangId': '5', 'Password': 'Alaa#1122'}</msg>
+<status status="PASS" starttime="20231205 18:29:33.628" endtime="20231205 18:29:33.628"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Authorization=${token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231205 18:29:33.628" level="INFO">${header} = {'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231205 18:29:33.628" endtime="20231205 18:29:33.628"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>LogoutEmployee</arg>
+<arg>${Logout}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231205 18:29:33.628" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:35.264" level="INFO">POST Request : url=https://web.v-dream.net/api/EmployeeQR/Logout 
+ path_url=/api/EmployeeQR/Logout 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer  Fp50g4khgNVitrYGOWMhYmevEX9B0PJMLupiI1d0pR4=', 'Content-Type': 'application/json', 'Content-Length': '40'} 
+ body={"LangId": "5", "Password": "Alaa#1122"} 
+ </msg>
+<msg timestamp="20231205 18:29:35.264" level="INFO">POST Response : url=https://web.v-dream.net/api/EmployeeQR/Logout 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Dec 2023 16:29:35 GMT'} 
+ body={"message":"تم تسجيل الخروج بنجاح","messageEn":null,"messageAr":null,"statusCode":200,"data":null,"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231205 18:29:35.264" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231205 18:29:35.264" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231205 18:29:33.628" endtime="20231205 18:29:35.264"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231205 18:29:35.264" endtime="20231205 18:29:35.264"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${response.json()}</arg>
+<arg>message</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20231205 18:29:35.264" endtime="20231205 18:29:35.264"/>
+</kw>
+<kw name="Dictionary Should Contain Value" library="Collections">
+<arg>${response.json()}</arg>
+<arg>تم تسجيل الخروج بنجاح</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20231205 18:29:35.264" endtime="20231205 18:29:35.280"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:33.618" endtime="20231205 18:29:35.280"/>
+</kw>
+<status status="PASS" starttime="20231205 18:29:18.781" endtime="20231205 18:29:35.280"/>
+</test>
+<status status="PASS" starttime="20231205 18:29:17.868" endtime="20231205 18:29:35.280"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Employee">Employee</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231205 18:29:18.781" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:23.465" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:23.758" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:25.996" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:26.143" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:28.973" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:30.197" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231205 18:29:33.587" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231205 18:29:33.628" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>

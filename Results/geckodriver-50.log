@@ -1,0 +1,18 @@
+1699221116427	geckodriver	INFO	Listening on 127.0.0.1:62226
+1699221119482	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62227" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ALAAAH~1\\AppData\\Local\\Temp\\rust_mozprofile3u6IZk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699221120357	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699221120545	Marionette	INFO	Listening on port 62236
+WebDriver BiDi listening on ws://127.0.0.1:62227
+Read port: 62236
+1699221121269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:62227/devtools/browser/14671281-ec58-4595-9d76-aafba7af715a
+console.error: ({})
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://login.ratehex.com."
+1699221152192	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://login.ratehex.com."
+1699221337455	Marionette	INFO	Stopped listening on port 62236
+Dynamically enable window occlusion 1

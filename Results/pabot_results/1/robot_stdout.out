@@ -1,0 +1,46 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.Post                                                                   
+==============================================================================
+GetLink                                                                   https://qr-test.v-dream.net/QR/id?q=648986:182
+????? ????????
+??? ?????
+6
+administration
+administration
+2
+2
+Customer management
+False
+  
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:20
+    T:  GetLink    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:44
+      ${count}>=1    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:44
+          
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:129
+      '${group}' == 'administration'    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:129
+          
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot:158
+      Click Element    xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button' not found.
+------------------------------------------------------------------------------
+Suites.Post                                                           | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Suites                                                                | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\Alaa Ahmed\PycharmProjects\test\Results\pabot_results\1\output.xml

@@ -1,0 +1,43 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.Hotel                                                                  
+==============================================================================
+Hotel                                                                 Hotel
+LoginHotel
+True
+True
+??????_??? ?????
+???? ???2
+?????? ?????? ?????
+???????
+English
+
+ChooseService
+??????_??? ?????
+???? ???2
+?????? ?????? ??????
+6
+LogoutHotel
+  
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\hotel.robot:16
+    T:  Hotel    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\hotel.robot:23
+      LogoutHotel    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\Alaa Ahmed\PycharmProjects\test\Resources\common.robot:70
+      Click Element    xpath:/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/*[name()='svg'][1]
+______________________________________________________________________________
+| FAIL |
+Element with locator 'xpath:/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/*[name()='svg'][1]' not found.
+------------------------------------------------------------------------------
+Suites.Hotel                                                          | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Suites                                                                | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\Alaa Ahmed\PycharmProjects\test\Results\pabot_results\3\output.xml

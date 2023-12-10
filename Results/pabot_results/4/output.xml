@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20231106 13:50:45.956" rpa="false" schemaversion="3">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Static" source="C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\static.robot">
+<test id="s1-s1-t1" name="GETProfile" line="26">
+<kw name="Login1">
+<var>${access_token}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Login_session</arg>
+<arg>${base_api}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231106 13:50:47.365" level="INFO">Creating Session using : alias=Login_session, url=https://api.escuelajs.co/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231106 13:50:47.364" endtime="20231106 13:50:47.366"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${logincreit}</var>
+<arg>email=john@mail.com</arg>
+<arg>password=changeme</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:50:47.371" level="INFO">${logincreit} = {'email': 'john@mail.com', 'password': 'changeme'}</msg>
+<status status="PASS" starttime="20231106 13:50:47.369" endtime="20231106 13:50:47.371"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Login_session</arg>
+<arg>/v1/auth/login</arg>
+<arg>json=${logincreit}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231106 13:50:48.106" level="INFO">POST Request : url=https://api.escuelajs.co/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '50', 'Content-Type': 'application/json'} 
+ body=b'{"email": "john@mail.com", "password": "changeme"}' 
+ </msg>
+<msg timestamp="20231106 13:50:48.106" level="INFO">POST Response : url=https://api.escuelajs.co/api/v1/auth/login 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1699271448&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=1lH4Oc5hVQkUVNU0YfrtbBfHw4x%2BVsVc8CNlYcKp53A%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1699271448&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=1lH4Oc5hVQkUVNU0YfrtbBfHw4x%2BVsVc8CNlYcKp53A%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '316', 'Etag': 'W/"13c-pPoSlBBw23UX6RtL0/k7VAkmlSk"', 'Date': 'Mon, 06 Nov 2023 11:50:48 GMT', 'Via': '1.1 vegur'} 
+ body={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNjk5MzA3NDQ4fQ.8VBGbDb5IPtzTQQF7U6Iw1KgJC84oA3WWIUfUG3TCyQ"} 
+ </msg>
+<msg timestamp="20231106 13:50:48.107" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.escuelajs.co'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231106 13:50:48.107" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231106 13:50:47.372" endtime="20231106 13:50:48.108"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${resp_data}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231106 13:50:48.109" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231106 13:50:48.110" level="INFO">To JSON using : content={"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNjk5MzA3NDQ4fQ.8VBGbDb5IPtzTQQF7U6Iw1KgJC84oA3WWIUfUG3TCyQ"} </msg>
+<msg timestamp="20231106 13:50:48.110" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231106 13:50:48.111" level="INFO">${resp_data} = {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I', 'refresh_token': 'eyJhbGciOiJIUzI1NiIsIn...</msg>
+<status status="PASS" starttime="20231106 13:50:48.108" endtime="20231106 13:50:48.111"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${access_token}</var>
+<arg>${resp_data}</arg>
+<arg>$.access_token</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231106 13:50:48.211" level="INFO">${access_token} = ['eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I']</msg>
+<status status="PASS" starttime="20231106 13:50:48.111" endtime="20231106 13:50:48.212"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${refresh_token}</var>
+<arg>${resp_data}</arg>
+<arg>$.refresh_token</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231106 13:50:48.255" level="INFO">${refresh_token} = ['eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNjk5MzA3NDQ4fQ.8VBGbDb5IPtzTQQF7U6Iw1KgJC84oA3WWIUfUG3TCyQ']</msg>
+<status status="PASS" starttime="20231106 13:50:48.212" endtime="20231106 13:50:48.255"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${refresh_token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:48.256" endtime="20231106 13:50:48.257"/>
+</kw>
+<msg timestamp="20231106 13:50:48.257" level="INFO">${access_token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I</msg>
+<status status="PASS" starttime="20231106 13:50:47.363" endtime="20231106 13:50:48.257"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>get</arg>
+<arg>${base_api}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231106 13:50:48.259" level="INFO">Creating Session using : alias=get, url=https://api.escuelajs.co/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231106 13:50:48.258" endtime="20231106 13:50:48.259"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${access_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:50:48.261" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1...</msg>
+<status status="PASS" starttime="20231106 13:50:48.260" endtime="20231106 13:50:48.261"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>get</arg>
+<arg>/v1/auth/profile</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231106 13:50:48.938" level="INFO">GET Request : url=https://api.escuelajs.co/api/v1/auth/profile 
+ path_url=/api/v1/auth/profile 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5OTI3MTQ0OCwiZXhwIjoxNzAwOTk5NDQ4fQ.cOtm1f8YMMa3-NxtdVQpjAhY3t83FrwEFHu2JxFQC1I'} 
+ body=None 
+ </msg>
+<msg timestamp="20231106 13:50:48.938" level="INFO">GET Response : url=https://api.escuelajs.co/api/v1/auth/profile 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1699271449&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=Yk%2B3HIAGVJfd0VZ1J2r77UTABVwYwPjS63LQoc9AZhY%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1699271449&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=Yk%2B3HIAGVJfd0VZ1J2r77UTABVwYwPjS63LQoc9AZhY%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '209', 'Etag': 'W/"d1-ZsJGBszrAH5oEtuaM55kh+aMIYA"', 'Date': 'Mon, 06 Nov 2023 11:50:49 GMT', 'Via': '1.1 vegur'} 
+ body={"id":1,"email":"john@mail.com","password":"changeme","name":"Jhon","role":"customer","avatar":"https://i.imgur.com/M3QKiC5.jpeg","creationAt":"2023-11-06T10:57:31.000Z","updatedAt":"2023-11-06T10:57:31.000Z"} 
+ </msg>
+<msg timestamp="20231106 13:50:48.939" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.escuelajs.co'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231106 13:50:48.939" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231106 13:50:48.261" endtime="20231106 13:50:48.939"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${response_data}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231106 13:50:48.940" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231106 13:50:48.941" level="INFO">To JSON using : content={"id":1,"email":"john@mail.com","password":"changeme","name":"Jhon","role":"customer","avatar":"https://i.imgur.com/M3QKiC5.jpeg","creationAt":"2023-11-06T10:57:31.000Z","updatedAt":"2023-11-06T10:57:31.000Z"} </msg>
+<msg timestamp="20231106 13:50:48.942" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231106 13:50:48.942" level="INFO">${response_data} = {'id': 1, 'email': 'john@mail.com', 'password': 'changeme', 'name': 'Jhon', 'role': 'customer', 'avatar': 'https://i.imgur.com/M3QKiC5.jpeg', 'creationAt': '2023-11-06T10:57:31.000Z', 'updatedAt': '20...</msg>
+<status status="PASS" starttime="20231106 13:50:48.940" endtime="20231106 13:50:48.942"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:48.942" endtime="20231106 13:50:48.942"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20231106 13:50:48.943" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20231106 13:50:48.943" endtime="20231106 13:50:48.943"/>
+</kw>
+<status status="PASS" starttime="20231106 13:50:47.362" endtime="20231106 13:50:48.943"/>
+</test>
+<status status="PASS" starttime="20231106 13:50:46.088" endtime="20231106 13:50:48.944"/>
+</suite>
+<status status="PASS" starttime="20231106 13:50:45.983" endtime="20231106 13:50:48.946"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Static">Suites.Static</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231106 13:50:48.109" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231106 13:50:48.940" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>

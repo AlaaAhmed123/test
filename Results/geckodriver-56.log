@@ -1,0 +1,30 @@
+1699267010486	geckodriver	INFO	Listening on 127.0.0.1:51031
+1699267013529	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51032" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ALAAAH~1\\AppData\\Local\\Temp\\rust_mozprofile3jEEJm"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699267014122	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699267014261	Marionette	INFO	Listening on port 51042
+WebDriver BiDi listening on ws://127.0.0.1:51032
+Read port: 51042
+1699267014752	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51032/devtools/browser/8d8dd178-c4f6-4517-a59f-7edc764b60c5
+console.error: ({})
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://login.ratehex.com."
+1699267045283	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://login.ratehex.com/static/js/main.10cd2252.js, line 2: Script terminated by timeout at:
+Xt@https://login.ratehex.com/static/js/main.10cd2252.js:2:173864
+nu@https://login.ratehex.com/static/js/main.10cd2252.js:2:252994
+ns@https://login.ratehex.com/static/js/main.10cd2252.js:2:217945
+w@https://login.ratehex.com/static/js/main.10cd2252.js:2:569191
+
+1699267050622	Marionette	INFO	Stopped listening on port 51042
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function
+console.error: (new Error("Data is not ready.", "resource://gre/modules/JSONFile.sys.mjs", 178))
+console.warn: services.settings: main/addons-manager-settings sync interrupted by shutdown
+console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
+console.warn: services.settings: security-state/cert-revocations sync interrupted by shutdown
+console.warn: services.settings: security-state/intermediates sync interrupted by shutdown
+console.warn: services.settings: security-state/onecrl sync interrupted by shutdown

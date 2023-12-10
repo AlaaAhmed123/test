@@ -1,0 +1,21 @@
+1699204802471	geckodriver	INFO	Listening on 127.0.0.1:50911
+1699204805518	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50912" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ALAAAH~1\\AppData\\Local\\Temp\\rust_mozprofilex4xpPy"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699204806174	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699204806322	Marionette	INFO	Listening on port 50921
+WebDriver BiDi listening on ws://127.0.0.1:50912
+Read port: 50921
+1699204806785	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50912/devtools/browser/c4bc7347-9f22-4ad1-9a70-0d38ffe6850e
+1699204839637	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+console.error: ({})
+console.error: ({})
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://login.ratehex.com."
+JavaScript error: https://login.ratehex.com/static/js/main.10cd2252.js, line 2: TypeError: Fullscreen request denied
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://login.ratehex.com."
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1699205882198	Marionette	INFO	Stopped listening on port 50921
+Dynamically enable window occlusion 1
+!!! error running onStopped callback: TypeError: callback is not a function

@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20231106 13:49:27.063" rpa="false" schemaversion="3">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Post" source="C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Post.Robot">
+<test id="s1-s1-t1" name="GetLink" line="20">
+<kw name="Login" library="common">
+<var>${token_data}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Login_session</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231106 13:49:28.111" level="INFO">Creating Session using : alias=Login_session, url=https://web.v-dream.net/api/ToolSetting, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231106 13:49:28.111" endtime="20231106 13:49:28.112"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>Email=test_email@teml.net</arg>
+<arg>Password=Alaa#1122</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:49:28.113" level="INFO">${body} = {'Email': 'test_email@teml.net', 'Password': 'Alaa#1122'}</msg>
+<status status="PASS" starttime="20231106 13:49:28.112" endtime="20231106 13:49:28.113"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:49:28.114" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231106 13:49:28.113" endtime="20231106 13:49:28.114"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Login_session</arg>
+<arg>${Login}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231106 13:49:28.114" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231106 13:50:03.527" level="INFO">POST Request : url=https://web.v-dream.net/api/ToolSetting/Login 
+ path_url=/api/ToolSetting/Login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '57'} 
+ body={"Email": "test_email@teml.net", "Password": "Alaa#1122"} 
+ </msg>
+<msg timestamp="20231106 13:50:03.528" level="INFO">POST Response : url=https://web.v-dream.net/api/ToolSetting/Login 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 06 Nov 2023 11:50:03 GMT'} 
+ body={"message":null,"messageEn":null,"messageAr":null,"statusCode":200,"data":"{\"CompanyId\":182,\"DeviceId\":0,\"Token\":\"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIyNzMiLCJSb2xlSWQiOiIyIiwibmJmIjoxNjk5MjcxNDAyLCJleHAiOjE2OTk4NzYyMDIsImlhdCI6MTY5OTI3MTQwMn0.oME8dOqHJmBaeNaVuHumiRcBsKUSjEvmT55llw_BlP7e0r8IJ651E_t_YG7iG2YAq_M8zKO-RVY9vyF8fPq_3A\",\"SMSProvidedName\":null,\"SMSProvider\":[{\"Id\":1,\"Name\":\"Taqnyat\"},{\"Id\":2,\"Name\":\"Msegat\"},{\"Id\":3,\"Name\":\"Cequens\"}],\"ProviderToken\":null,\"ProviderUsing\":null,\"SMSBalance\":null,\"CurrentBalance\":null,\"Message\":null,\"MessageAr\":null,\"MessageEn\":null,\"StatusCode\":200,\"Duration\":0,\"SMSProvidedId\":0,\"SenderName\":null,\"SenderProviderUserName\":null,\"SenderProviderPassword\":null,\"SMSProviderUsingId\":0}","isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231106 13:50:03.528" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231106 13:50:03.528" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231106 13:49:28.114" endtime="20231106 13:50:03.528"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231106 13:50:03.529" endtime="20231106 13:50:03.529"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20231106 13:50:03.530" endtime="20231106 13:50:03.531"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${data}</var>
+<arg>${response.json()}[data]</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231106 13:50:03.532" level="INFO">${data} = {"CompanyId":182,"DeviceId":0,"Token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIy...</msg>
+<status status="PASS" starttime="20231106 13:50:03.531" endtime="20231106 13:50:03.532"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${Token}</var>
+<arg>${data}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20231106 13:50:03.533" level="INFO">${Token} = ['{"CompanyId":182', '"DeviceId":0', '"Token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2Vy...</msg>
+<status status="PASS" starttime="20231106 13:50:03.533" endtime="20231106 13:50:03.533"/>
+</kw>
+<kw name="Get Substring" library="String">
+<var>${token_data}</var>
+<arg>${Token}[2]</arg>
+<arg>9</arg>
+<arg>-1</arg>
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<msg timestamp="20231106 13:50:03.534" level="INFO">${token_data} = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIyNzMiLCJSb2xlSWQiOiIyIiwibmJmIjoxNjk5Mjc...</msg>
+<status status="PASS" starttime="20231106 13:50:03.534" endtime="20231106 13:50:03.534"/>
+</kw>
+<msg timestamp="20231106 13:50:03.534" level="INFO">${token_data} = eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIyNzMiLCJSb2xlSWQiOiIyIiwibmJmIjoxNjk5Mjc...</msg>
+<status status="PASS" starttime="20231106 13:49:28.110" endtime="20231106 13:50:03.534"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Authorization=Bearer ${token_data}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:50:03.536" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIyNzMiLCJSb2xlS...</msg>
+<status status="PASS" starttime="20231106 13:50:03.535" endtime="20231106 13:50:03.536"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${data}</var>
+<arg>DeviceId=441</arg>
+<arg>EmpId=36800</arg>
+<arg>PhoneNumber=4567900</arg>
+<arg>Email=KA4567900@test.com"</arg>
+<arg>BillNumber=KA4567900</arg>
+<arg>ProductsIds=238900,239000</arg>
+<arg>IntegrationId=1</arg>
+<arg>TypeId=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231106 13:50:03.537" level="INFO">${data} = {'DeviceId': '441', 'EmpId': '36800', 'PhoneNumber': '4567900', 'Email': 'KA4567900@test.com"', 'BillNumber': 'KA4567900', 'ProductsIds': '238900,239000', 'IntegrationId': '1', 'TypeId': '1'}</msg>
+<status status="PASS" starttime="20231106 13:50:03.536" endtime="20231106 13:50:03.537"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>GetEvaluationLink</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231106 13:50:03.538" level="INFO">Creating Session using : alias=GetEvaluationLink, url=https://web.v-dream.net/api/ToolSetting, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231106 13:50:03.537" endtime="20231106 13:50:03.538"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>GetEvaluationLink</arg>
+<arg>${GetEvaluationLink}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20231106 13:50:03.539" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231106 13:50:09.119" level="INFO">POST Request : url=https://web.v-dream.net/api/ToolSetting/GetEvaluationLink 
+ path_url=/api/ToolSetting/GetEvaluationLink 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJDb21wYW55SWQiOiIxODIiLCJDb21wYW55Um9sZUlkIjoiMTUyIiwiQnJhbmNoSWRzIjoiMzU0LDM1NSIsIlJvbGVVc2VySWQiOiIxOTUiLCJVc2VySWQiOiIyNzMiLCJSb2xlSWQiOiIyIiwibmJmIjoxNjk5MjcxNDAyLCJleHAiOjE2OTk4NzYyMDIsImlhdCI6MTY5OTI3MTQwMn0.oME8dOqHJmBaeNaVuHumiRcBsKUSjEvmT55llw_BlP7e0r8IJ651E_t_YG7iG2YAq_M8zKO-RVY9vyF8fPq_3A', 'Content-Type': 'application/json', 'Content-Length': '192'} 
+ body={"DeviceId": "441", "EmpId": "36800", "PhoneNumber": "4567900", "Email": "KA4567900@test.com\"", "BillNumber": "KA4567900", "ProductsIds": "238900,239000", "IntegrationId": "1", "TypeId": "1"} 
+ </msg>
+<msg timestamp="20231106 13:50:09.120" level="INFO">POST Response : url=https://web.v-dream.net/api/ToolSetting/GetEvaluationLink 
+ status=200, reason=OK 
+ headers={'Transfer-Encoding': 'chunked', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Microsoft-IIS/10.0', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 06 Nov 2023 11:50:09 GMT'} 
+ body={"message":"تمت العملية بنجاح","messageEn":null,"messageAr":null,"statusCode":200,"data":{"deviceSendingOptions":"1","evaluationLink":"King Cars,    https://qr-test.v-dream.net/QR/id?q=648986:182"},"isSuccess":true,"isData":null} 
+ </msg>
+<msg timestamp="20231106 13:50:09.120" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'web.v-dream.net'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231106 13:50:09.121" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231106 13:50:03.538" endtime="20231106 13:50:09.121"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${resp}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20231106 13:50:09.121" endtime="20231106 13:50:09.123"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${Link}</var>
+<arg>${resp.json()}[data][evaluationLink]</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20231106 13:50:09.126" level="INFO">${Link} = ['King Cars', '    https://qr-test.v-dream.net/QR/id?q=648986:182']</msg>
+<status status="PASS" starttime="20231106 13:50:09.123" endtime="20231106 13:50:09.126"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Link}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:09.126" endtime="20231106 13:50:09.127"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Link}[1]</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231106 13:50:09.130" level="INFO">Opening browser 'firefox' to base url '    https://qr-test.v-dream.net/QR/id?q=648986:182'.</msg>
+<status status="PASS" starttime="20231106 13:50:09.128" endtime="20231106 13:50:19.584"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231106 13:50:19.585" endtime="20231106 13:50:19.591"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/p</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231106 13:50:19.591" endtime="20231106 13:50:22.360"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[1]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20231106 13:50:22.372" level="INFO">Current page contains element 'xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[1]'.</msg>
+<status status="PASS" starttime="20231106 13:50:22.361" endtime="20231106 13:50:22.372"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${CompanyName}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:22.527" level="INFO">${CompanyName} = الملك للسيارات</msg>
+<status status="PASS" starttime="20231106 13:50:22.373" endtime="20231106 13:50:22.527"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${CompanyName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:22.527" endtime="20231106 13:50:22.529"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[2]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20231106 13:50:22.548" level="INFO">Current page contains element 'xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[2]'.</msg>
+<status status="PASS" starttime="20231106 13:50:22.530" endtime="20231106 13:50:22.548"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${branchName}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[1]/p[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:22.596" level="INFO">${branchName} = فرع الاول</msg>
+<status status="PASS" starttime="20231106 13:50:22.549" endtime="20231106 13:50:22.596"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${branchName}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:22.596" endtime="20231106 13:50:22.598"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[2]/div[2]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:22.600" level="INFO">Clicking element 'xpath://*[@id="root"]/div/div/div/div[1]/div[1]/div[2]/div[2]/a'.</msg>
+<status status="PASS" starttime="20231106 13:50:22.598" endtime="20231106 13:50:23.090"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/h2</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231106 13:50:23.090" endtime="20231106 13:50:29.764"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elements}</var>
+<arg>class:EvaluationType_EVbtn__T1BYp</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20231106 13:50:29.778" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5690385f-1636-4a13-9299-e788af8a3fa4", element="b48cc492-b3ef-48d8-a347-85128fb79ae3")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (s...</msg>
+<status status="PASS" starttime="20231106 13:50:29.765" endtime="20231106 13:50:29.778"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${count}</var>
+<arg>${elements}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20231106 13:50:29.780" level="INFO">Length is 6</msg>
+<msg timestamp="20231106 13:50:29.780" level="INFO">${count} = 6</msg>
+<status status="PASS" starttime="20231106 13:50:29.778" endtime="20231106 13:50:29.780"/>
+</kw>
+<while condition="${count}&gt;=1">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:29.783" endtime="20231106 13:50:29.784"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${group}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:29.849" level="INFO">${group} = administration</msg>
+<status status="PASS" starttime="20231106 13:50:29.785" endtime="20231106 13:50:29.850"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${group}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:29.850" endtime="20231106 13:50:29.851"/>
+</kw>
+<while condition="'${group}' == 'Product'">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${group}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.853" endtime="20231106 13:50:29.854"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(.,'${group}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.854" endtime="20231106 13:50:29.855"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.855" endtime="20231106 13:50:29.856"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${Products}</var>
+<arg>class:Items_Card__-976F</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.856" endtime="20231106 13:50:29.857"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${Product_count}</var>
+<arg>${Products}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.857" endtime="20231106 13:50:29.858"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Product_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.858" endtime="20231106 13:50:29.860"/>
+</kw>
+<if>
+<branch type="IF" condition="${Product_count} == 1">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Product_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.861" endtime="20231106 13:50:29.862"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Product}</var>
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.863" endtime="20231106 13:50:29.863"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.863" endtime="20231106 13:50:29.864"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.864" endtime="20231106 13:50:29.865"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.860" endtime="20231106 13:50:29.865"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Product_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.866" endtime="20231106 13:50:29.867"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Product}</var>
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div[${Product_count}]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.867" endtime="20231106 13:50:29.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.868" endtime="20231106 13:50:29.869"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div[${Product_count}]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.869" endtime="20231106 13:50:29.869"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${Product_count}</var>
+<arg>${Product_count} - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.870" endtime="20231106 13:50:29.870"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.866" endtime="20231106 13:50:29.870"/>
+</branch>
+<status status="NOT RUN" starttime="20231106 13:50:29.860" endtime="20231106 13:50:29.871"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.871" endtime="20231106 13:50:29.874"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.875" endtime="20231106 13:50:29.876"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.877" endtime="20231106 13:50:29.877"/>
+</kw>
+<while condition="'${Status}'=='True'" limit="NONE">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.879" endtime="20231106 13:50:29.879"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[2]/div[2]/div[2]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.880" endtime="20231106 13:50:29.880"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.881" endtime="20231106 13:50:29.881"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.882" endtime="20231106 13:50:29.882"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.878" endtime="20231106 13:50:29.883"/>
+</iter>
+<status status="NOT RUN" starttime="20231106 13:50:29.878" endtime="20231106 13:50:29.883"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.884" endtime="20231106 13:50:29.884"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.886" endtime="20231106 13:50:29.886"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.887" endtime="20231106 13:50:29.888"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="Modal"]/div/div/div[2]/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.888" endtime="20231106 13:50:29.889"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.890" endtime="20231106 13:50:29.890"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.891" endtime="20231106 13:50:29.891"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>alaaahmed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.892" endtime="20231106 13:50:29.893"/>
+</kw>
+<if>
+<branch type="IF" condition="${Product_count} != 1">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.894" endtime="20231106 13:50:29.895"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${group}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.896" endtime="20231106 13:50:29.896"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.893" endtime="20231106 13:50:29.896"/>
+</branch>
+<branch type="ELSE IF" condition="${Product_count} == 1">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${group}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[1]/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.899" endtime="20231106 13:50:29.900"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.897" endtime="20231106 13:50:29.900"/>
+</branch>
+<status status="NOT RUN" starttime="20231106 13:50:29.893" endtime="20231106 13:50:29.901"/>
+</if>
+<status status="NOT RUN" starttime="20231106 13:50:29.852" endtime="20231106 13:50:29.901"/>
+</iter>
+<status status="NOT RUN" starttime="20231106 13:50:29.852" endtime="20231106 13:50:29.901"/>
+</while>
+<if>
+<branch type="IF" condition="'${group}' == 'employee'">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${group}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.903" endtime="20231106 13:50:29.904"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(.,'${group}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.906" endtime="20231106 13:50:29.907"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.910" endtime="20231106 13:50:29.910"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.911" endtime="20231106 13:50:29.912"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.913" endtime="20231106 13:50:29.914"/>
+</kw>
+<while condition="'${Status}'=='True'" limit="NONE">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.916" endtime="20231106 13:50:29.916"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[2]/div[2]/div[2]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.917" endtime="20231106 13:50:29.918"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.918" endtime="20231106 13:50:29.919"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.920" endtime="20231106 13:50:29.920"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.914" endtime="20231106 13:50:29.921"/>
+</iter>
+<status status="NOT RUN" starttime="20231106 13:50:29.914" endtime="20231106 13:50:29.921"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.921" endtime="20231106 13:50:29.922"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.925" endtime="20231106 13:50:29.929"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.930" endtime="20231106 13:50:29.930"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="Modal"]/div/div/div[2]/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.930" endtime="20231106 13:50:29.931"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.931" endtime="20231106 13:50:29.931"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>alaaahmed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.931" endtime="20231106 13:50:29.932"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.902" endtime="20231106 13:50:29.932"/>
+</branch>
+<branch type="ELSE IF" condition="'${group}' == 'Branch'">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${group}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.933" endtime="20231106 13:50:29.933"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(.,'${group}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.933" endtime="20231106 13:50:29.934"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.934" endtime="20231106 13:50:29.935"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.935" endtime="20231106 13:50:29.936"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.936" endtime="20231106 13:50:29.937"/>
+</kw>
+<while condition="'${Status}'=='True'" limit="NONE">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.938" endtime="20231106 13:50:29.938"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[2]/div[2]/div[1]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.939" endtime="20231106 13:50:29.939"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.939" endtime="20231106 13:50:29.939"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.940" endtime="20231106 13:50:29.940"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.937" endtime="20231106 13:50:29.940"/>
+</iter>
+<status status="NOT RUN" starttime="20231106 13:50:29.937" endtime="20231106 13:50:29.940"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.940" endtime="20231106 13:50:29.941"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.941" endtime="20231106 13:50:29.941"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.942" endtime="20231106 13:50:29.942"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="Modal"]/div/div/div[2]/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.943" endtime="20231106 13:50:29.943"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.943" endtime="20231106 13:50:29.944"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>alaaahmed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:29.944" endtime="20231106 13:50:29.944"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:29.932" endtime="20231106 13:50:29.944"/>
+</branch>
+<status status="PASS" starttime="20231106 13:50:29.902" endtime="20231106 13:50:29.945"/>
+</if>
+<while condition="'${group}' == 'administration'">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${group}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:29.946" endtime="20231106 13:50:29.947"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://p[contains(.,'${group}')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:29.948" level="INFO">Clicking element 'xpath://p[contains(.,'administration')]'.</msg>
+<status status="PASS" starttime="20231106 13:50:29.947" endtime="20231106 13:50:30.203"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231106 13:50:35.204" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231106 13:50:30.203" endtime="20231106 13:50:35.204"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${administrations}</var>
+<arg>class:Items_Card__-976F</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20231106 13:50:35.217" level="INFO">${administrations} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5690385f-1636-4a13-9299-e788af8a3fa4", element="36321eb5-0507-46a7-bf91-82b7da36d2f0")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (s...</msg>
+<status status="PASS" starttime="20231106 13:50:35.204" endtime="20231106 13:50:35.217"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${administration_count}</var>
+<arg>${administrations}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20231106 13:50:35.218" level="INFO">Length is 2</msg>
+<msg timestamp="20231106 13:50:35.218" level="INFO">${administration_count} = 2</msg>
+<status status="PASS" starttime="20231106 13:50:35.217" endtime="20231106 13:50:35.218"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${administration_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:35.218" endtime="20231106 13:50:35.219"/>
+</kw>
+<if>
+<branch type="IF" condition="${administration_count} == 1">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${administration_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:35.220" endtime="20231106 13:50:35.220"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${administration}</var>
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:35.221" endtime="20231106 13:50:35.221"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${administration}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:35.221" endtime="20231106 13:50:35.221"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:35.221" endtime="20231106 13:50:35.222"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:35.219" endtime="20231106 13:50:35.222"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${administration_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:35.222" endtime="20231106 13:50:35.224"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${administration}</var>
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div[${administration_count}]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:35.242" level="INFO">${administration} = Customer management</msg>
+<status status="PASS" starttime="20231106 13:50:35.224" endtime="20231106 13:50:35.243"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${administration}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:35.243" endtime="20231106 13:50:35.245"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[2]/div/div[${administration_count}]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:35.248" level="INFO">Clicking element 'xpath://*[@id="root"]/div/div/div[2]/div/div[2]/div/p'.</msg>
+<status status="PASS" starttime="20231106 13:50:35.246" endtime="20231106 13:50:35.516"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${administration_count}</var>
+<arg>${administration_count} - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231106 13:50:35.519" level="INFO">${administration_count} = 1</msg>
+<status status="PASS" starttime="20231106 13:50:35.517" endtime="20231106 13:50:35.519"/>
+</kw>
+<status status="PASS" starttime="20231106 13:50:35.222" endtime="20231106 13:50:35.519"/>
+</branch>
+<status status="PASS" starttime="20231106 13:50:35.219" endtime="20231106 13:50:35.519"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231106 13:50:45.520" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231106 13:50:35.519" endtime="20231106 13:50:45.520"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Disabled" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Verifies that element identified by ``locator`` is disabled.</doc>
+<msg timestamp="20231106 13:50:45.650" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231106 13:50:45.650" level="FAIL">Element with locator 'xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button' not found.</msg>
+<status status="FAIL" starttime="20231106 13:50:45.521" endtime="20231106 13:50:45.657"/>
+</kw>
+<msg timestamp="20231106 13:50:45.657" level="INFO">${Status} = False</msg>
+<status status="PASS" starttime="20231106 13:50:45.521" endtime="20231106 13:50:45.657"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:50:45.658" endtime="20231106 13:50:45.659"/>
+</kw>
+<while condition="'${Status}'=='True'" limit="NONE">
+<iter>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:45.660" endtime="20231106 13:50:45.661"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[2]/div[2]/div[2]/div/p</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:45.661" endtime="20231106 13:50:45.662"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:45.662" endtime="20231106 13:50:45.663"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>element should be disabled</arg>
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:45.663" endtime="20231106 13:50:45.664"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:45.659" endtime="20231106 13:50:45.664"/>
+</iter>
+<status status="NOT RUN" starttime="20231106 13:50:45.659" endtime="20231106 13:50:45.664"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231106 13:50:50.666" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231106 13:50:45.665" endtime="20231106 13:50:50.667"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231106 13:50:50.669" level="INFO">Clicking element 'xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button'.</msg>
+<msg timestamp="20231106 13:50:50.760" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231106 13:50:50.761" level="FAIL">Element with locator 'xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button' not found.</msg>
+<status status="FAIL" starttime="20231106 13:50:50.668" endtime="20231106 13:50:50.762"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.763" endtime="20231106 13:50:50.763"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="Modal"]/div/div/div[2]/div[1]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.763" endtime="20231106 13:50:50.764"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.764" endtime="20231106 13:50:50.764"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>alaaahmed</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.764" endtime="20231106 13:50:50.765"/>
+</kw>
+<if>
+<branch type="IF" condition="${administration_count} != 1">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.766" endtime="20231106 13:50:50.767"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${group}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[${count}]/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.767" endtime="20231106 13:50:50.767"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:50.765" endtime="20231106 13:50:50.767"/>
+</branch>
+<branch type="ELSE IF" condition="${administration_count} == 1">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${group}</var>
+<arg>xpath://*[@id="root"]/div/div/div/div[2]/div[2]/div/div[1]/div/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.768" endtime="20231106 13:50:50.768"/>
+</kw>
+<status status="NOT RUN" starttime="20231106 13:50:50.768" endtime="20231106 13:50:50.768"/>
+</branch>
+<status status="NOT RUN" starttime="20231106 13:50:50.765" endtime="20231106 13:50:50.769"/>
+</if>
+<status status="FAIL" starttime="20231106 13:50:29.945" endtime="20231106 13:50:50.769"/>
+</iter>
+<status status="FAIL" starttime="20231106 13:50:29.945" endtime="20231106 13:50:50.769"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.769" endtime="20231106 13:50:50.770"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${count}</var>
+<arg>${count} - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.770" endtime="20231106 13:50:50.770"/>
+</kw>
+<status status="FAIL" starttime="20231106 13:50:29.781" endtime="20231106 13:50:50.770"/>
+</iter>
+<status status="FAIL" starttime="20231106 13:50:29.780" endtime="20231106 13:50:50.771"/>
+</while>
+<kw name="Sleep" library="BuiltIn">
+<arg>10</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231106 13:50:50.771" endtime="20231106 13:50:50.771"/>
+</kw>
+<status status="FAIL" starttime="20231106 13:49:28.108" endtime="20231106 13:50:50.771">Element with locator 'xpath://*[@id="root"]/div/div/div[3]/div/div[3]/button' not found.</status>
+</test>
+<status status="FAIL" starttime="20231106 13:49:27.174" endtime="20231106 13:50:50.773"/>
+</suite>
+<status status="FAIL" starttime="20231106 13:49:27.100" endtime="20231106 13:50:50.775"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Post">Suites.Post</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231106 13:49:28.114" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20231106 13:50:03.539" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>

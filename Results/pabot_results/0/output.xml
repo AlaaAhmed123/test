@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20231106 13:49:27.072" rpa="false" schemaversion="3">
+<suite id="s1" name="Suites">
+<suite id="s1-s1" name="Get Request" source="C:\Users\Alaa Ahmed\PycharmProjects\test\TestCase\Get_Request.robot">
+<test id="s1-s1-t1" name="GetAllCountries" line="11">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>Get_session</arg>
+<arg>${baseUrl}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231106 13:49:27.952" level="INFO">Creating Session using : alias=Get_session, url=https://restcountries.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231106 13:49:27.951" endtime="20231106 13:49:27.952"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>Get_session</arg>
+<arg>/v3.1/alpha/IN</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20231106 13:49:27.953" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231106 13:49:28.731" level="INFO">GET Request : url=https://restcountries.com/v3.1/alpha/IN 
+ path_url=/v3.1/alpha/IN 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231106 13:49:28.732" level="INFO">GET Response : url=https://restcountries.com/v3.1/alpha/IN 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 06 Nov 2023 11:49:28 GMT', 'Server': 'Apache/2.4.38 (Debian)', 'Cache-Control': 'public, immutable, max-age=31556926', 'Content-Type': 'application/json', 'content-encoding': 'gzip', 'content-length': '1496', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive'} 
+ body=[{"name":{"common":"India","official":"Republic of India","nativeName":{"eng":{"official":"Republic of India","common":"India"},"hin":{"official":"भारत गणराज्य","common":"भारत"},"tam":{"official":"இந்தியக் குடியரசு","common":"இந்தியா"}}},"tld":[".in"],"cca2":"IN","ccn3":"356","cca3":"IND","cioc":"IND","independent":true,"status":"officially-assigned","unMember":true,"currencies":{"INR":{"name":"Indian rupee","symbol":"₹"}},"idd":{"root":"+9","suffixes":["1"]},"capital":["New Delhi"],"altSpellings":["IN","Bhārat","Republic of India","Bharat Ganrajya","இந்தியா"],"region":"Asia","subregion":"Southern Asia","languages":{"eng":"English","hin":"Hindi","tam":"Tamil"},"translations":{"ara":{"official":"جمهورية الهند","common":"الهند"},"bre":{"official":"Republik India","common":"India"},"ces":{"official":"Indická republika","common":"Indie"},"cym":{"official":"Republic of India","common":"India"},"deu":{"official":"Republik Indien","common":"Indien"},"est":{"official":"India Vabariik","common":"India"},"fin":{"official":"Intian tasavalta","common":"Intia"},"fra":{"official":"République de l'Inde","common":"Inde"},"hrv":{"official":"Republika Indija","common":"Indija"},"hun":{"official":"Indiai Köztársaság","common":"India"},"ita":{"official":"Repubblica dell'India","common":"India"},"jpn":{"official":"インド共和国","common":"インド"},"kor":{"official":"인도 공화국","common":"인도"},"nld":{"official":"Republiek India","common":"India"},"per":{"official":"جمهوری هندوستان","common":"هند"},"pol":{"official":"Republika Indii","common":"Indie"},"por":{"official":"República da Índia","common":"Índia"},"rus":{"official":"Республика Индия","common":"Индия"},"slk":{"official":"Indická republika","common":"India"},"spa":{"official":"República de la India","common":"India"},"srp":{"official":"Република Индија","common":"Индија"},"swe":{"official":"Republiken Indien","common":"Indien"},"tur":{"official":"Hindistan Cumhuriyeti","common":"Hindistan"},"urd":{"official":"جمہوریہ بھارت","common":"بھارت"},"zho":{"official":"印度共和国","common":"印度"}},"latlng":[20.0,77.0],"landlocked":false,"borders":["BGD","BTN","MMR","CHN","NPL","PAK"],"area":3287590.0,"demonyms":{"eng":{"f":"Indian","m":"Indian"},"fra":{"f":"Indienne","m":"Indien"}},"flag":"\uD83C\uDDEE\uD83C\uDDF3","maps":{"googleMaps":"https://goo.gl/maps/WSk3fLwG4vtPQetp7","openStreetMaps":"https://www.openstreetmap.org/relation/304716"},"population":1380004385,"gini":{"2011":35.7},"fifa":"IND","car":{"signs":["IND"],"side":"left"},"timezones":["UTC+05:30"],"continents":["Asia"],"flags":{"png":"https://flagcdn.com/w320/in.png","svg":"https://flagcdn.com/in.svg","alt":"The flag of India is composed of three equal horizontal bands of saffron, white and green. A navy blue wheel with twenty-four spokes — the Ashoka Chakra — is centered in the white band."},"coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/in.png","svg":"https://mainfacts.com/media/images/coats_of_arms/in.svg"},"startOfWeek":"monday","capitalInfo":{"latlng":[28.6,77.2]},"postalCode":{"format":"######","regex":"^(\\d{6})$"}}] 
+ </msg>
+<msg timestamp="20231106 13:49:28.732" level="INFO">C:\Python\Lib\site-packages\urllib3\connectionpool.py:1056: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restcountries.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20231106 13:49:28.733" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231106 13:49:27.952" endtime="20231106 13:49:28.733"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231106 13:49:28.734" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231106 13:49:28.733" endtime="20231106 13:49:28.734"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:49:28.735" endtime="20231106 13:49:28.735"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231106 13:49:28.736" endtime="20231106 13:49:28.736"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20231106 13:49:28.737" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20231106 13:49:28.738" level="INFO">To JSON using : content=[{"name":{"common":"India","official":"Republic of India","nativeName":{"eng":{"official":"Republic of India","common":"India"},"hin":{"official":"भारत गणराज्य","common":"भारत"},"tam":{"official":"இந்தியக் குடியரசு","common":"இந்தியா"}}},"tld":[".in"],"cca2":"IN","ccn3":"356","cca3":"IND","cioc":"IND","independent":true,"status":"officially-assigned","unMember":true,"currencies":{"INR":{"name":"Indian rupee","symbol":"₹"}},"idd":{"root":"+9","suffixes":["1"]},"capital":["New Delhi"],"altSpellings":["IN","Bhārat","Republic of India","Bharat Ganrajya","இந்தியா"],"region":"Asia","subregion":"Southern Asia","languages":{"eng":"English","hin":"Hindi","tam":"Tamil"},"translations":{"ara":{"official":"جمهورية الهند","common":"الهند"},"bre":{"official":"Republik India","common":"India"},"ces":{"official":"Indická republika","common":"Indie"},"cym":{"official":"Republic of India","common":"India"},"deu":{"official":"Republik Indien","common":"Indien"},"est":{"official":"India Vabariik","common":"India"},"fin":{"official":"Intian tasavalta","common":"Intia"},"fra":{"official":"République de l'Inde","common":"Inde"},"hrv":{"official":"Republika Indija","common":"Indija"},"hun":{"official":"Indiai Köztársaság","common":"India"},"ita":{"official":"Repubblica dell'India","common":"India"},"jpn":{"official":"インド共和国","common":"インド"},"kor":{"official":"인도 공화국","common":"인도"},"nld":{"official":"Republiek India","common":"India"},"per":{"official":"جمهوری هندوستان","common":"هند"},"pol":{"official":"Republika Indii","common":"Indie"},"por":{"official":"República da Índia","common":"Índia"},"rus":{"official":"Республика Индия","common":"Индия"},"slk":{"official":"Indická republika","common":"India"},"spa":{"official":"República de la India","common":"India"},"srp":{"official":"Република Индија","common":"Индија"},"swe":{"official":"Republiken Indien","common":"Indien"},"tur":{"official":"Hindistan Cumhuriyeti","common":"Hindistan"},"urd":{"official":"جمہوریہ بھارت","common":"بھارت"},"zho":{"official":"印度共和国","common":"印度"}},"latlng":[20.0,77.0],"landlocked":false,"borders":["BGD","BTN","MMR","CHN","NPL","PAK"],"area":3287590.0,"demonyms":{"eng":{"f":"Indian","m":"Indian"},"fra":{"f":"Indienne","m":"Indien"}},"flag":"\uD83C\uDDEE\uD83C\uDDF3","maps":{"googleMaps":"https://goo.gl/maps/WSk3fLwG4vtPQetp7","openStreetMaps":"https://www.openstreetmap.org/relation/304716"},"population":1380004385,"gini":{"2011":35.7},"fifa":"IND","car":{"signs":["IND"],"side":"left"},"timezones":["UTC+05:30"],"continents":["Asia"],"flags":{"png":"https://flagcdn.com/w320/in.png","svg":"https://flagcdn.com/in.svg","alt":"The flag of India is composed of three equal horizontal bands of saffron, white and green. A navy blue wheel with twenty-four spokes — the Ashoka Chakra — is centered in the white band."},"coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/in.png","svg":"https://mainfacts.com/media/images/coats_of_arms/in.svg"},"startOfWeek":"monday","capitalInfo":{"latlng":[28.6,77.2]},"postalCode":{"format":"######","regex":"^(\\d{6})$"}}] </msg>
+<msg timestamp="20231106 13:49:28.738" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20231106 13:49:28.745" level="INFO">${body} = [{'name': {'common': 'India', 'official': 'Republic of India', 'nativeName': {'eng': {'official': 'Republic of India', 'common': 'India'}, 'hin': {'official': 'भारत गणराज्य', 'common': 'भारत'}, 'tam':...</msg>
+<status status="PASS" starttime="20231106 13:49:28.737" endtime="20231106 13:49:28.745"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${country_name}</var>
+<arg>${body}</arg>
+<arg>$..name.common</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231106 13:49:28.831" level="INFO">${country_name} = ['India']</msg>
+<status status="PASS" starttime="20231106 13:49:28.745" endtime="20231106 13:49:28.831"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${country_name_type}</var>
+<arg>type(${country_name}).__name__</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231106 13:49:28.833" level="INFO">${country_name_type} = list</msg>
+<status status="PASS" starttime="20231106 13:49:28.832" endtime="20231106 13:49:28.833"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${country_name[0]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:49:28.833" endtime="20231106 13:49:28.834"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${country_name_type}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231106 13:49:28.834" endtime="20231106 13:49:28.835"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${country_name[0]}</arg>
+<arg>India</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231106 13:49:28.835" endtime="20231106 13:49:28.836"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${country_name[0]}</arg>
+<arg>India</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231106 13:49:28.837" endtime="20231106 13:49:28.838"/>
+</kw>
+<status status="PASS" starttime="20231106 13:49:27.949" endtime="20231106 13:49:28.839"/>
+</test>
+<status status="PASS" starttime="20231106 13:49:27.183" endtime="20231106 13:49:28.840"/>
+</suite>
+<status status="PASS" starttime="20231106 13:49:27.116" endtime="20231106 13:49:28.842"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Suites">Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Get Request">Suites.Get Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231106 13:49:27.953" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231106 13:49:28.737" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+</errors>
+</robot>

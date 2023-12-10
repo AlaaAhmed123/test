@@ -1,0 +1,9 @@
+datasources:7ac01bc2986e7b3b171aec1de04dcd1977a77043
+commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
+suitesfrom:no-suites-from-option
+file:026110cb95807fffcc3e340ae1f5d7b5c93d2546
+--suite Suites.Get Request
+--suite Suites.Post
+--suite Suites.Dynamic
+--suite Suites.Hotel
+--suite Suites.Static
